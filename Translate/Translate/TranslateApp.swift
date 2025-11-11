@@ -2,10 +2,12 @@ import SwiftUI
 
 @main
 struct TranslateApp: App {
+    //@StateObject private var translationService = TranslationService()
+
     var body: some Scene {
         WindowGroup {
-            RootView()   // ⬅️ our main container with the 3 tabs
+            RootView()
+                //.environmentObject(translationService)
         }
     }
 }
-

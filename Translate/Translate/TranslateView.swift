@@ -6,6 +6,8 @@ struct TranslateView: View {
     @State private var targetLanguage = "Spanish (Spain)"
     @State private var sourceText = ""
     @State private var targetText = ""
+    @State private var showFavourites = false
+
 
     var body: some View {
         ZStack {
@@ -16,13 +18,18 @@ struct TranslateView: View {
             VStack(alignment: .leading, spacing: 16) {
 
                 // MARK: - Top bar
+                
                 HStack {
-                    Button { } label: {
+                    // Favourites button
+                    Button {
+                        showFavourites = true
+                    } label: {
                         ZStack {
                             Circle()
-                                .fill(Color(.systemBackground)) // white background
-                                .frame(width: 45, height: 45)
-                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                .fill(Color(.systemBackground))
+                                .frame(width: 36, height: 36)
+                                .shadow(color: Color.black.opacity(0.06),
+                                        radius: 2, x: 0, y: 1)
 
                             Image(systemName: "list.star")
                                 .font(.system(size: 18, weight: .semibold))
@@ -31,15 +38,25 @@ struct TranslateView: View {
                     }
                     .buttonStyle(.plain)
 
-
                     Spacer()
 
+                    // Right ellipsis button (optional: same circular style)
                     Button { } label: {
-                        Image(systemName: "ellipsis.circle")
-                            .font(.title2)
+                        ZStack {
+                            Circle()
+                                .fill(Color(.systemBackground))
+                                .frame(width: 36, height: 36)
+                                .shadow(color: Color.black.opacity(0.06),
+                                        radius: 2, x: 0, y: 1)
+
+                            Image(systemName: "ellipsis")
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(.black)
+                        }
                     }
+                    .buttonStyle(.plain)
                 }
-                .foregroundColor(.secondary)
+
 
                 Text("Translate")
                     .font(.system(size: 34, weight: .bold))
@@ -191,6 +208,9 @@ struct TranslateView: View {
             }
             .padding(.horizontal, 16)
             .padding(.top, 16)
+        }
+            .sheet(isPresented: $showFavourites) {
+                        FavouritesView()
         }
     }
 }

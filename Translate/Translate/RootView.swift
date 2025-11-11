@@ -5,13 +5,13 @@ struct RootView: View {
         TabView {
             TranslateView()
                 .tabItem {
-                    Image(systemName: "character.bubble.fill")
+                    Image(systemName: "translate")
                     Text("Translate")
                 }
 
             CameraTranslatePlaceholderView()
                 .tabItem {
-                    Image(systemName: "camera.viewfinder")
+                    Image(systemName: "camera.fill")
                     Text("Camera")
                 }
 
@@ -21,6 +21,7 @@ struct RootView: View {
                     Text("Conversation")
                 }
         }
+        .tint(Color(.systemTeal))
     }
 }
 
