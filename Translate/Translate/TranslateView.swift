@@ -18,9 +18,19 @@ struct TranslateView: View {
                 // MARK: - Top bar
                 HStack {
                     Button { } label: {
-                        Image(systemName: "line.3.horizontal.circle")
-                            .font(.title2)
+                        ZStack {
+                            Circle()
+                                .fill(Color(.systemBackground)) // white background
+                                .frame(width: 45, height: 45)
+                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+
+                            Image(systemName: "list.star")
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(.black)
+                        }
                     }
+                    .buttonStyle(.plain)
+
 
                     Spacer()
 
