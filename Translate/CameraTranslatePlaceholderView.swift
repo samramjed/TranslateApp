@@ -17,7 +17,3 @@ struct CameraTranslatePlaceholderView: View {
     }
 }
 
-#Preview {
-    RootView()
-}
-

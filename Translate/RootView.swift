@@ -11,7 +11,7 @@ struct RootView: View {
 
             CameraTranslatePlaceholderView()
                 .tabItem {
-                    Image(systemName: "camera.fill")
+                    Image(systemName: "camera")
                     Text("Camera")
                 }
 
@@ -20,7 +20,16 @@ struct RootView: View {
                     Image(systemName: "person.2.fill")
                     Text("Conversation")
                 }
+            
+            TranslationFrameworkView()
+                .tabItem{
+                    
+                    Image(systemName: "pc")
+                    Text("Framework")
+                }
+            
         }
+        
         .tint(Color(.systemTeal))
     }
 }

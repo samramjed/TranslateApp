@@ -17,6 +17,3 @@ struct ConversationPlaceholderView: View {
     }
 }
 
-#Preview {
-    RootView()
-}
